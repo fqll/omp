@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htcl.omp.dao.UserRolesMapper">
+  <resultMap id="BaseResultMap" type="com.htcl.omp.domain.UserRoles">
+    <!--@mbg.generated-->
+    <id column="id" property="id" />
+    <result column="role_name" property="roleName" />
+    <result column="describes" property="describes" />
+    <result column="status" property="status" />
+    <result column="roles_type" property="rolesType" />
+    <result column="created_id" property="createdId" />
+    <result column="last_modify_id" property="lastModifyId" />
+    <result column="created_time" property="createdTime" />
+    <result column="last_modify_time" property="lastModifyTime" />
+    <result column="version_num" property="versionNum" />
+    <result column="deleted" property="deleted" />
+    <result column="is_valid" property="isValid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, role_name, describes, "status", roles_type, created_id, last_modify_id, created_time, 
+    last_modify_time, version_num, deleted, is_valid
+  </sql>
+</mapper>

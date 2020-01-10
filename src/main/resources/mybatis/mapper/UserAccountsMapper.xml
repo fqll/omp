@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htcl.omp.dao.UserAccountsMapper">
+  <resultMap id="BaseResultMap" type="com.htcl.omp.domain.UserAccounts">
+    <!--@mbg.generated-->
+    <id column="id" property="id" />
+    <result column="user_name" property="userName" />
+    <result column="phone" property="phone" />
+    <result column="email" property="email" />
+    <result column="salt" property="salt" />
+    <result column="password" property="password" />
+    <result column="status" property="status" />
+    <result column="account_type" property="accountType" />
+    <result column="created_id" property="createdId" />
+    <result column="last_modify_id" property="lastModifyId" />
+    <result column="created_time" property="createdTime" />
+    <result column="last_modify_time" property="lastModifyTime" />
+    <result column="version_num" property="versionNum" />
+    <result column="deleted" property="deleted" />
+    <result column="is_valid" property="isValid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_name, phone, email, salt, "password", "status", account_type, created_id, 
+    last_modify_id, created_time, last_modify_time, version_num, deleted, is_valid
+  </sql>
+    <select id="selectPermissionsListByUserId" resultType="com.htcl.omp.domain.UserPermissions">
+        SELECT DISTINCT t3.*
+        FROM
+            user_account_role t1
+            LEFT JOIN user_role_permission t2 ON t1.role_id = t2.role_id
+            LEFT JOIN user_permissions t3 ON t2.permission_id = t3.ID
+        WHERE
+            t1.account_id = #{userId}
+    </select>
+  <select id="selectRolesByUserId" resultType="com.htcl.omp.domain.UserRoles">
+        SELECT
+            t1.*
+        FROM
+            user_roles t1
+            LEFT JOIN user_account_role t2 ON t1.id = t2.role_id
+        WHERE
+            t2.account_id =1
+  </select>
+</mapper>
