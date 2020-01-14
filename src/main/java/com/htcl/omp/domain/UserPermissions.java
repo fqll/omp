@@ -1,6 +1,10 @@
 package com.htcl.omp.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.htcl.omp.dto.UserPermissionsDto;
+import com.htcl.omp.enums.StatusEnum;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -9,7 +13,16 @@ import java.io.Serializable;
  */
 
 @Data
+@TableName("user_permissions")
+@NoArgsConstructor
 public class UserPermissions extends BaseModel implements Serializable {
+
+    public UserPermissions(UserPermissionsDto userPermissionsDto) {
+        this.url = userPermissionsDto.getUrl();
+        this.describes = userPermissionsDto.getDescribes();
+        // 默认是有效状态的权限
+        this.status = StatusEnum.VALID_STATUS.getValue();
+    }
 
     /**
      * 请求路径

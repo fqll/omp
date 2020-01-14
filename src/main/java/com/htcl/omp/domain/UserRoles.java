@@ -1,6 +1,10 @@
 package com.htcl.omp.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.htcl.omp.dto.UserRolesDto;
+import com.htcl.omp.enums.StatusEnum;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -9,7 +13,17 @@ import java.io.Serializable;
  */
 
 @Data
+@NoArgsConstructor
+@TableName("user_roles")
 public class UserRoles extends BaseModel implements Serializable {
+
+    public UserRoles(UserRolesDto userRolesDto) {
+        this.roleName = userRolesDto.getRoleName();
+        this.describes = userRolesDto.getDescribes();
+        // 默认是有效角色
+        this.status = StatusEnum.VALID_STATUS.getValue();
+    }
+
     /**
      * 角色名称
      */

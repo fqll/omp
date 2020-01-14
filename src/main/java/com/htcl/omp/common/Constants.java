@@ -12,7 +12,9 @@ public class Constants {
     public final static int HTTP_403 = 403;
     public final static int HTTP_404 = 404;
     public final static int HTTP_500 = 500;
-    public final static int HTTP_800 = 800;
+
+    public final static String MESSAGE = "message";
+    public final static String CODE = "code";
 
     /** 数据初始版本号1 */
     public static final Integer DATA_DEFAULT_VERSION = 1;
@@ -20,5 +22,9 @@ public class Constants {
     public static final String DATA_NOT_DELETE = "0";
     /** 数据有效 */
     public static final String DATA_VALID = "1";
+
+    /** 创建用户的初始密码*/
+    public static final String INIT_PASSWORD = "123456";
+
 
 }

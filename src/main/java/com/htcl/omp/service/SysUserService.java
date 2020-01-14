@@ -7,13 +7,18 @@ import com.htcl.omp.domain.UserRoles;
 import com.htcl.omp.dto.UserAccountsDto;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sam on 2020-01-10.08:50
  */
 public interface SysUserService extends IService<UserAccounts> {
 
-    void createUser(UserAccountsDto userAccountsDto);
+    /**
+     * 创建用户
+     * @param userAccountsDto
+     */
+    Map<String, Object> createUser(UserAccountsDto userAccountsDto);
 
     /**
      * 根据用户名查询实体

@@ -1,6 +1,10 @@
 package com.htcl.omp.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.htcl.omp.dto.UserAccountsDto;
+import com.htcl.omp.enums.StatusEnum;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -9,6 +13,8 @@ import java.io.Serializable;
  */
 
 @Data
+@NoArgsConstructor
+@TableName("user_accounts")
 public class UserAccounts extends BaseModel implements Serializable {
     /**
      * 用户名称
@@ -44,6 +50,14 @@ public class UserAccounts extends BaseModel implements Serializable {
      * 账号类型
      */
     private String accountType;
+
+    public UserAccounts(UserAccountsDto userAccountsDto) {
+        this.userName = userAccountsDto.getUserName();
+        this.phone = userAccountsDto.getPhone();
+        this.email = userAccountsDto.getEmail();
+        // 默认是有效状态用户
+        this.status = StatusEnum.VALID_STATUS.getValue();
+    }
 
     private static final long serialVersionUID = 1L;
 }
